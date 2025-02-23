@@ -1,0 +1,8 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+venv/
+
+# ignore .env file containing API keys
+.env
+
+# ignore folder containing W-8BEN form
+Alpaca W-8BEN screenshots/
