@@ -23,7 +23,7 @@ This bot uses:
 
 2. **Technical Analysis**  
    - Implements popular indicators (MACD, RSI, Stochastic Oscillator, Bollinger Bands, SMA, EMA, etc.).  
-   - Processes and merges these indicators with your price data for signal generation.
+   - Processes and merges these indicators with price data for signal generation.
 
 3. **Paper Trading & Backtesting**  
    - Utilizes Alpaca’s paper trading platform to place simulated orders.  
