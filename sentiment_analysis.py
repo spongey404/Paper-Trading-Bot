@@ -50,7 +50,7 @@ class NewsSentimentAnalyser:
         texts = [f"{headline}: {summary}" for headline, summary in newsList]
 
         results = self.pipe(inputs=texts) # 4gb vram
-        print(results)
+        
         sentimentNum = {
             "negative": -1,
             "neutral": 0,
@@ -64,19 +64,9 @@ class NewsSentimentAnalyser:
             weightedTotalSentiment += sentimentNum[article["label"]] * article["score"]
             confidenceTotal += article["score"]
 
-        # <-0.4 means negative, >0.4 means positive, in between means neutral
+        # <-0.4 means negative, >0.4 means positive, in between means neutral?
         return weightedTotalSentiment/len(results), confidenceTotal/len(results)
 
 
-import time
-
-start_time = time.time()  # Start timer
-
-# Run your sentiment analysis
 x = NewsSentimentAnalyser("NVDA")
 print(x.get_sentiment())
-
-end_time = time.time()  # End timer
-elapsed_time = end_time - start_time  # Calculate total execution time
-
-print(f"Execution Time: {elapsed_time:.2f} seconds")
