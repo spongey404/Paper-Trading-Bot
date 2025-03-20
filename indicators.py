@@ -9,7 +9,7 @@ class TechnicalIndicators:
     def get_indicators(self, data):
         IndicatorDF = data.copy()
 
-        closeSeries = data['Close'].squeeze()
+        closeSeries = data['Close'].squeeze() # turns df to series
         highSeries = data['High'].squeeze()
         lowSeries = data['Low'].squeeze()
         
@@ -54,4 +54,4 @@ if __name__ == "__main__":
     
     calculator = TechnicalIndicators()
     data_with_indicators = calculator.get_indicators(data) 
-    print(data_with_indicators.columns)
+    print(data_with_indicators)
