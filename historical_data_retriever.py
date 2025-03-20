@@ -2,7 +2,7 @@ import yfinance as yf
 import pandas as pd
 
 class DataRetriever:
-    def __init__(self, period='60d', interval='15m'):
+    def __init__(self, period="60d", interval="15m"):
         self.period = period
         self.interval = interval
 
@@ -11,7 +11,7 @@ class DataRetriever:
         data.dropna(inplace=True)
         return data
         
-if __name__=='__main__':
-    retriever = DataRetriever(period='3mo', interval='1d')
-    data = retriever.get_data('AAPL')
+if __name__=="__main__":
+    retriever = DataRetriever(period="3mo", interval="1d")
+    data = retriever.get_data("AAPL")
     print(data)
