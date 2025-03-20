@@ -156,7 +156,7 @@ class TechnicalAnalyser:
             self.signals["overall"] = "neutral"
             
         
-    def analyze_trend(self, historical_data, period=5): # last 5 days by default
+    def analyse_trend(self, historical_data, period=5): # last 5 days by default
         recent_closes = historical_data["Close"].iloc[-period:].squeeze() # turns df to series
         if recent_closes.is_monotonic_increasing:
             self.signals["recent_trend"] = "uptrend"
@@ -173,7 +173,7 @@ class TechnicalAnalyser:
         self.moving_avg_analysis(current_data)
         self.bollinger_bands_analysis(current_data)
         self.stochastic_analysis(current_data)
-        self.analyze_trend(historical_data)
+        self.analyse_trend(historical_data)
         self.calculate_overall_score()
         return self.signals, self.score
     
