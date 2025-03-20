@@ -144,11 +144,11 @@ class TechnicalAnalyser:
     def calculate_overall_score(self):
         # -8 to 8
         
-        if self.score > 4:
+        if self.score > 3:
             self.signals["overall"] = "strongly_bullish"
         elif self.score > 1:
             self.signals["overall"] = "bullish"
-        elif self.score < -4:
+        elif self.score < -3:
             self.signals["overall"] = "strongly_bearish"
         elif self.score < -1:
             self.signals["overall"] = "bearish"
@@ -182,7 +182,7 @@ if __name__ == "__main__":
     from indicators import TechnicalIndicators
 
     fetcher = DataRetriever(period="1mo", interval="15m")
-    historicalData = fetcher.get_data("NVDA")
+    historicalData = fetcher.get_data("XHLD")
     
     calculator = TechnicalIndicators()
     indicatorData = calculator.get_indicators(historicalData) 
