@@ -64,9 +64,9 @@ class NewsSentimentAnalyser:
             weightedTotalSentiment += sentimentNum[article["label"]] * article["score"]
             confidenceTotal += article["score"]
 
-        # <-0.4 means negative, >0.4 means positive, in between means neutral?
+        # <-0.2 means negative, >0.2 means positive, in between means neutral?
         return weightedTotalSentiment/len(results), confidenceTotal/len(results)
 
-
-x = NewsSentimentAnalyser("NVDA")
-print(x.get_sentiment())
+if __name__ == "__main__":
+    x = NewsSentimentAnalyser("XLHD")
+    print(x.get_sentiment())

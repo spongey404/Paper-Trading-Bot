@@ -141,6 +141,17 @@ class TechnicalAnalyser:
             self.signals["Stochastic_cross"] = "bearish"
             self.score -= 0.5
     
+    def analyse_trend(self, historical_data, period=5): # last 5 days by default
+        recent_closes = historical_data["Close"].iloc[-period:].squeeze() # turns df to series
+        if recent_closes.is_monotonic_increasing:
+            self.signals["recent_trend"] = "uptrend"
+            self.score += 1
+        elif recent_closes.is_monotonic_decreasing:
+            self.signals["recent_trend"] = "downtrend"
+            self.score -= 1
+        else:
+            self.signals["recent_trend"] = "sideways"
+
     def calculate_overall_score(self):
         # -8 to 8
         
@@ -155,19 +166,7 @@ class TechnicalAnalyser:
         else:
             self.signals["overall"] = "neutral"
             
-        
-    def analyse_trend(self, historical_data, period=5): # last 5 days by default
-        recent_closes = historical_data["Close"].iloc[-period:].squeeze() # turns df to series
-        if recent_closes.is_monotonic_increasing:
-            self.signals["recent_trend"] = "uptrend"
-            self.score += 1
-        elif recent_closes.is_monotonic_decreasing:
-            self.signals["recent_trend"] = "downtrend"
-            self.score -= 1
-        else:
-            self.signals["recent_trend"] = "sideways"
-
-    def run_all_analyses(self, current_data, historical_data):
+    def run_all_tech_analyses(self, current_data, historical_data):
         self.macd_analysis(current_data)
         self.rsi_analysis(current_data)
         self.moving_avg_analysis(current_data)
@@ -192,7 +191,7 @@ if __name__ == "__main__":
     print(currentData["MACD"])
 
     analyser = TechnicalAnalyser()
-    signals, score = analyser.run_all_analyses(currentData, indicatorData)
+    signals, score = analyser.run_all_tech_analyses(currentData, indicatorData)
 
     print("Technical Analysis Signals:")
     for key, value in signals.items():
