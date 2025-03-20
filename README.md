@@ -40,7 +40,12 @@ This bot uses:
 ---
 
 ## Improvements being worked on:
-- Analysis of multiple symbols at once
 - Documentation
-- Different news retrieval library (Current implementation only allows for news from Benzinga to be used which might be succeptable to bias)
-- Identify more accurate range for aggregated sentiment scores classifications for positive, negative and neutral signals
+- Different news retrieval library (Current implementation only allows for news from Benzinga to be used which might be susceptible to bias)
+- Identify a more accurate range for aggregated sentiment score classifications for positive, negative and neutral signals
+- Implement more robust error handling
+
+## Upgrades for future versions:
+- Analysis of multiple symbols at once
+- Have symbols be chosen entirely by the algorithm with no user input from current news
+- Add machine learning elements
