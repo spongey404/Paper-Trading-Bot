@@ -5,7 +5,9 @@ class TechnicalAnalyser:
         self.score = 0
 
     def _series_to_scalar(self, data):
-        return float(data)
+        # when doing float(data) got this FutureWarning:
+        # Calling float on a single element Series is deprecated and will raise a TypeError in the future. Use float(ser.iloc[0]) instead
+        return float(data.iloc[0]) 
 
     def macd_analysis(self, data):
         macd = self._series_to_scalar(data["MACD"])
