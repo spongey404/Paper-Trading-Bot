@@ -30,8 +30,13 @@ class NewsSentimentAnalyser:
         startDate, endDate = self.get_news_dates(days_prior)
         newsParam = NewsRequest(symbols=self.ticker, start=startDate, end=endDate)
         news = self.newsClient.get_news(newsParam)
-
-        newsDF = news.df
+        
+        try:
+            newsDF = news.df
+        except Exception as e:
+            print(f"No news found for {self.ticker}")
+            return []
+        
         usefulNews = [(row["headline"], row["summary"]) for index, row in newsDF.iterrows()]
 
         return usefulNews
