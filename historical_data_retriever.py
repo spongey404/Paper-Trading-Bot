@@ -2,7 +2,7 @@ import yfinance as yf
 import pandas as pd
 
 class DataRetriever:
-    def __init__(self, period="60d", interval="15m"):
+    def __init__(self, period="5d", interval="1h"):
         self.period = period
         self.interval = interval
 
