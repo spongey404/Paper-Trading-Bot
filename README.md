@@ -7,7 +7,7 @@ A Python-based paper trading bot that uses **Natural Language Processing (NLP)**
 ## Overview
 
 This bot uses:
-- **Hugging Face’s FinBERT** model to process news article headlines and summaries and assign a sentiment score (positive, negative, or neutral)
+- **Hugging Face’s ProsusAI/FinBERT** model to process news article headlines and summaries and assign a sentiment score (positive, negative, or neutral)
 - Various **technical indicators** (MACD, RSI, Bollinger Bands, and more) for technical analysis
 - **Alpaca’s paper trading API** for simulating trades
 - **Yahoo Finance data** for backtesting historical performance of the strategies
@@ -18,19 +18,19 @@ This bot uses:
 
 1. **Sentiment Analysis**  
    - Retrieves recent news for a given ticker (currently from Benzinga).  
-   - Uses a finetuned BERT model (FinBERT) to classify news sentiment as negative, neutral, or positive.  
+   - Uses a BERT model (FinBERT) to classify news sentiment as negative, neutral, or positive.  
    - Translates multiple article sentiments into a single, aggregated sentiment score per ticker.
 
 2. **Technical Analysis**  
    - Implements popular indicators (MACD, RSI, Stochastic Oscillator, Bollinger Bands, SMA, EMA, etc.).  
-   - Processes and merges these indicators with price data for signal generation.
+   - Processes and merges these indicators with price data to generate a trade signal.
 
 3. **Paper Trading & Backtesting**  
-   - Utilizes Alpaca’s paper trading platform to place simulated orders.  
+   - Uses Alpaca’s paper trading platform to place simulated orders.  
    - Performs backtesting on historical data from Yahoo Finance to validate the system’s performance before live paper trading.
 
-4. **Modular Codebase**  
-   - Clear separation of concerns: 
+4. **Modular Code**  
+   - Clear separation of components: 
      - `sentiment_analysis.py` for NLP sentiment scoring  
      - `indicators.py` and `technical_analysis.py` for technical metrics  
      - `historical_data_retriever.py` for fetching historical market data  
